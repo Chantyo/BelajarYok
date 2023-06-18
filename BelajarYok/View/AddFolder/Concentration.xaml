@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BelajarYok.View.AddFolder.Concentration">
+             x:Class="BelajarYok.View.AddFolder.Concentration"
+             Background="black">
     <ContentPage.Content>
         <StackLayout>
             <Frame BackgroundColor="Transparent"
@@ -57,6 +58,9 @@
                            HorizontalOptions="Center"
                            VerticalOptions="Center" />
                     <Entry x:Name="timerEntry"
+                           Placeholder="Enter Time"
+                           PlaceholderColor="DarkGray"
+                           TextColor="White"
                            HorizontalTextAlignment="Center"
                            Grid.Row="2" 
                            Margin="80,0,80,0"/>

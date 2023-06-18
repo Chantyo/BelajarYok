@@ -25,7 +25,7 @@
                         FontSize="Large"
                         Clicked="Button_Clicked_1"
                         CornerRadius="5"></Button>
-                <Button Text="Event"
+                <Button Text="Concentration"
                         FontFamily="DM Sans"
                         TextColor="#2b2c30"
                         FontAttributes="Bold"

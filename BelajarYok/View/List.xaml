@@ -33,7 +33,7 @@
                              HorizontalOptions="Center"
                              HeightRequest="3"
                              WidthRequest="250"/>
-                    <CollectionView BackgroundColor="Transparent" HeightRequest="250" ItemsSource="{Binding toDoView}"
+                    <CollectionView BackgroundColor="Transparent" HeightRequest="210" ItemsSource="{Binding toDoView}"
                                     Margin="20">
                         <CollectionView.ItemTemplate>
                             <DataTemplate x:DataType="{x:Type Models:ToDoListHeader}">
@@ -56,6 +56,18 @@
                                 </StackLayout>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <Label Text="Tasks"
+                           FontAttributes="Bold"
+                           FontSize="Large"
+                           TextColor="white"
+                           HorizontalOptions="CenterAndExpand"/>
+                    <BoxView BackgroundColor="#bcfe2f"
+                             HorizontalOptions="Center"
+                             HeightRequest="3"
+                             WidthRequest="250"/>
+                    <CollectionView>
+                        
                     </CollectionView>
                 </StackLayout>
             </ScrollView>

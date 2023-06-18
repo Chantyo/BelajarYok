@@ -9,11 +9,33 @@ using XCalendar.Core.Enums;
 using XCalendar.Core.Extensions;
 using XCalendar.Core.Models;
 using BelajarYok.Model;
+using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 
 namespace BelajarYok.ViewModel
 {
     public class HomeViewModel : BaseViewModel
     {
+        public Command LoadToDoListCommand { get; }
+        public ObservableCollection<ToDoListHeader> toDoView { get; set; }
+        public async Task OnAppearing()
+        {
+            // Load data from the database
+            List<ToDoListHeader> data = await App.MyDatabase.GetToDoListHeader();
+
+            // Clear the existing collection
+            toDoView.Clear();
+
+            // Add the loaded data to the collection
+            foreach (var item in data)
+            {
+                toDoView.Add(item);
+            }
+        }
+        public async Task onDisapearing()
+        {
+            toDoView.Clear();
+        }
         #region Properties
         public Calendar<EventDay> EventCalendar { get; set; } = new Calendar<EventDay>()
         {
@@ -71,6 +93,7 @@ namespace BelajarYok.ViewModel
         #region Constructors
         public HomeViewModel()
         {
+            toDoView = new ObservableCollection<ToDoListHeader>();
             NavigateCalendarCommand = new Command<int>(NavigateCalendar);
             ChangeDateSelectionCommand = new Command<DateTime>(ChangeDateSelection);
             //nambah waktu event

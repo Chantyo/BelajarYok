@@ -9,6 +9,7 @@
              xmlns:System="clr-namespace:System;assembly=netstandard"
              xmlns:xcConverters="clr-namespace:XCalendar.Forms.Converters;assembly=XCalendar.Forms"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
              x:DataType="{x:Type ViewModels:HomeViewModel}"
              x:Name="This"
              Title="Event Calendar">
@@ -41,7 +42,7 @@
                 Padding="10"
                 BackgroundColor="#2b2c30"
                 CornerRadius="15"
-                HeightRequest="1200">
+                HeightRequest="420">
                 <xc:CalendarView
                     x:Name="MainCalendarView"
                     BackwardsArrowCommand="{Binding NavigateCalendarCommand}"
@@ -185,68 +186,116 @@
                 </xc:CalendarView>
             </Frame>
             <!--Info Box-->
-            <CollectionView
-                ItemsSource="{Binding SelectedEvents}">
-                <CollectionView.EmptyView>
-                    <ContentView>
-                        <StackLayout>
-                            <Label
+            <ScrollView>
+                <StackLayout>
+                    <Label Text="Tasks"
+                           FontAttributes="Bold"
+                           FontSize="Large"
+                           TextColor="white"
+                           HorizontalOptions="CenterAndExpand"/>
+                    <BoxView BackgroundColor="#bcfe2f"
+                             HorizontalOptions="Center"
+                             HeightRequest="3"
+                             WidthRequest="250"/>
+
+                    <CollectionView ItemsSource="{Binding SelectedEvents}" HeightRequest="170">
+                        <CollectionView.EmptyView>
+                            <ContentView>
+                                <StackLayout>
+                                    <Label
                                 TextColor="DarkGray"
                                 FontSize="18"
                                 HorizontalTextAlignment="Center"
                                 VerticalTextAlignment="Center"
-                                Text="Hooray!! Today u are free!"/> 
-                            <Image Source="Spam.png"></Image>
-                        </StackLayout>
-                    </ContentView>
-                </CollectionView.EmptyView>
+                                Text="Hooray!! Today u are free!"/>
+                                    <Image Source="Spam.png"></Image>
+                                </StackLayout>
+                            </ContentView>
+                        </CollectionView.EmptyView>
 
-                <CollectionView.ItemsLayout>
-                    <GridItemsLayout Orientation="Vertical" Span="1"/>
-                </CollectionView.ItemsLayout>
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" Span="1"/>
+                        </CollectionView.ItemsLayout>
 
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="{x:Type Models:Event}">
-                        <ContentView>
-                            <Frame
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="{x:Type Models:Event}">
+                                <ContentView>
+                                    <Frame
                                 Margin="5"
                                 Padding="0"
                                 CornerRadius="10">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="20"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <BoxView Grid.Column="0" BackgroundColor="{Binding Color}"/>
-                                    <StackLayout
-                                        Grid.Column="1"
-                                        Padding="10"
-                                        BackgroundColor="#2b2c30"
-                                        Spacing="0">
-                                        <Label
-                                        FontAttributes="Bold"
-                                        FontSize="20"
-                                        Text="{Binding DateTime, StringFormat='{0: dd MMMM HH:mm}'}"
-                                        TextColor="White"
-                                        VerticalTextAlignment="Center"/>
-                                        <Label
-                                        Margin="5,0,0,0"
-                                        FontSize="16"
-                                        Text="{Binding Title}"
-                                        TextColor="White"/>
-                                        <Label
-                                        Margin="5,10,0,0"
-                                        FontSize="14"
-                                        Text="{Binding Description}"
-                                        TextColor="White"/>
-                                    </StackLayout>
-                                </Grid>
-                                
-                            </Frame>
-                        </ContentView>
-                    </DataTemplate> 
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="20"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <BoxView Grid.Column="0" BackgroundColor="{Binding Color}"/>
+                                            <StackLayout Grid.Column="1"
+                                                         Padding="10"
+                                                         BackgroundColor="#2b2c30"
+                                                         Spacing="0">
+                                                <Label Margin="5,0,0,0"
+                                                       FontSize="20"
+                                                       Text="{Binding Title}"
+                                                       TextColor="White"
+                                                       FontAttributes="Bold"/>
+                                                <Label Margin="5,10,0,0"
+                                                       FontSize="14"
+                                                       Text="{Binding Description}"
+                                                       TextColor="White"/>
+                                                <Label FontAttributes="Bold"
+                                                FontSize="20"
+                                                Text="Due Date"
+                                                TextColor="White"
+                                               Margin="5"
+                                                VerticalTextAlignment="Center"/>
+                                                <Label FontSize="20"
+                                                Text="{Binding DateTime, StringFormat='{0: dd MMMM HH:mm}'}"
+                                                TextColor="White"
+                                                VerticalTextAlignment="Center"/>
+                                            </StackLayout>
+                                        </Grid>
+
+                                    </Frame>
+                                </ContentView>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <Label Text="To-Do List"
+                           FontAttributes="Bold"
+                           FontSize="Large"
+                           TextColor="white"
+                           HorizontalOptions="CenterAndExpand"/>
+                    <BoxView BackgroundColor="#bcfe2f"
+                             HorizontalOptions="Center"
+                             HeightRequest="3"
+                             WidthRequest="250"/>
+                    <CollectionView BackgroundColor="Transparent" HeightRequest="210" ItemsSource="{Binding toDoView}"
+                                    Margin="20">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="{x:Type Models:ToDoListHeader}">
+                                <StackLayout>
+                                    <Label Text="{Binding Title}" FontSize="Medium" FontAttributes="Bold" TextColor="White"/>
+                                    <CollectionView ItemsSource="{Binding ToDoLists}">
+                                        <CollectionView.ItemTemplate>
+                                            <DataTemplate x:DataType="{x:Type Models:ToDoList}">
+                                                <input:CheckBox Text="{Binding Text}"
+                                                                TextColor="White"
+                                                                BackgroundColor="{Binding backgroundColor}"
+                                                                IsChecked="{Binding isDone}"
+                                                                BoxBackgroundColor="Transparent"
+                                                                Color="#bcfe2f"
+                                                                IconColor="#bcfe2f"
+                                                                BorderColor="white"/>
+                                            </DataTemplate>
+                                        </CollectionView.ItemTemplate>
+                                    </CollectionView>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+            </ScrollView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

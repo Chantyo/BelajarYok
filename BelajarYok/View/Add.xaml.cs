@@ -24,12 +24,12 @@ namespace BelajarYok.View
 
         private void Button_Clicked_1(object sender, EventArgs e)//Tasks
         {
-            Navigation.PushAsync(new BelajarYok.View.AddFolder.AddTask()); ;
+            Navigation.PushAsync(new BelajarYok.View.AddFolder.AddTask());
         }
 
         private void Button_Clicked_2(object sender, EventArgs e)//event
         {
-            DisplayAlert("oi", "ini event", "ok");
+            Navigation.PushAsync(new BelajarYok.View.AddFolder.Concentration());
         }
     }
 }
