@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BelajarYok.View.Friends">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="42"/>
+                <RowDefinition Height="42"/>
+                <RowDefinition Height="42"/>
+                <RowDefinition Height="42"/>
+                <RowDefinition Height="42"/>
+                <RowDefinition Height="42"/>
+                <RowDefinition Height="42"/>
+                <RowDefinition Height="42"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="10"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Row="0" Grid.Column="1" Source="group_add" Aspect="AspectFit" Scale="0.8"/>
+            <ImageButton Grid.Row="1" Grid.Column="1" Source="search" BackgroundColor="#2b2c30"/>
+            <Label Grid.Row="0" Grid.Column="2" 
+                       Text="Add Friend" 
+                       FontAttributes="Bold"
+                       FontSize="20"
+                       TextColor="White"
+                       VerticalTextAlignment="Center"/>
+            <Entry Grid.Row="1" Grid.Column="2" Text="Search" PlaceholderColor="White" BackgroundColor="#2b2c30"/>
+            <Image Grid.Row="0" Grid.Column="3" Source="Notif2" Aspect="AspectFit" Scale="0.8"/>
+            <ImageButton Grid.Row="1" Grid.Column="3" Source="group_add" BackgroundColor="#2b2c30" Aspect="AspectFit"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
