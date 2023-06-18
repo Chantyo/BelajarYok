@@ -39,7 +39,7 @@ namespace BelajarYok.ViewModel
             string y = Title;
             ToDoListHeader toDoHeader = new ToDoListHeader();
             toDoHeader.Title = y;
-            toDoHeader.toDoLists = toDoLists;
+            toDoHeader.ToDoLists = toDoLists;
             await Application.Current.MainPage.Navigation.PushAsync(new BelajarYok.View.Home());
         }
         async Task addToDo()
