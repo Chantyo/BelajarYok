@@ -23,10 +23,10 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="20"/>
                 </Grid.ColumnDefinitions>
-                <!--<ImageButton Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" 
+                <ImageButton Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" 
                              Source="Back" 
                              Scale="0.7"
-                             BackgroundColor="Transparent"/>-->
+                             BackgroundColor="Transparent"/>
                 <Image Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Source="Branding" Scale="0.85"/>
                 <Label Grid.Row="2" Grid.Column="1" 
                        Grid.ColumnSpan="2" 
@@ -73,6 +73,7 @@
                         Grid.RowSpan="2"
                         CornerRadius="20"
                         Text="Login"
+                        Clicked="OnLoginClicked"
                         FontAttributes="Bold"
                         BorderWidth="2"
                         TextColor="#2b2c30"
@@ -110,7 +111,6 @@
                        BackgroundColor="Transparent"
                        HorizontalOptions="Start"
                        TextTransform="None"
-                       Clicked="Button_Clicked"
                        />
 
             </Grid>

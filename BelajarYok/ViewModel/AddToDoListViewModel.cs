@@ -22,7 +22,14 @@ namespace BelajarYok.ViewModel
             new ColorSelection(){ ColorName = "Red", color = Color.Red},
             new ColorSelection(){ ColorName = "Yellow", color = Color.Yellow}
         };
-        
+        public ObservableCollection<ColorSelection> Colors1 { get; } = new ObservableCollection<ColorSelection>()
+        {
+            new ColorSelection(){ ColorName = "Blue", color = Color.Blue},
+            new ColorSelection(){ ColorName = "Green", color = Color.Green},
+            new ColorSelection(){ ColorName = "Red", color = Color.Red},
+            new ColorSelection(){ ColorName = "Yellow", color = Color.Yellow}
+        };
+
         public ColorSelection SelectedBGColor { get; set; }
         public ColorSelection SelectedTextColor { get; set; }
 
@@ -40,7 +47,8 @@ namespace BelajarYok.ViewModel
             ToDoListHeader toDoHeader = new ToDoListHeader();
             toDoHeader.Title = y;
             toDoHeader.ToDoLists = toDoLists;
-            await Application.Current.MainPage.Navigation.PushAsync(new BelajarYok.View.Home());
+            await App.MyDatabase.CreateToDoListHeader(App.MyDatabase.db, toDoHeader);
+            await Application.Current.MainPage.DisplayAlert("Success", "ToDoListHeader saved successfully!", "OK");
         }
         async Task addToDo()
         {

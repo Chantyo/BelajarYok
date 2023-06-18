@@ -24,7 +24,7 @@ namespace BelajarYok.View
 
         private void Button_Clicked_1(object sender, EventArgs e)//Tasks
         {
-            DisplayAlert("halo", "ini Tasks", "ok");
+            Navigation.PushAsync(new BelajarYok.View.AddFolder.AddTask()); ;
         }
 
         private void Button_Clicked_2(object sender, EventArgs e)//event

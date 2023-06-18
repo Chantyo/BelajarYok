@@ -16,10 +16,25 @@ namespace BelajarYok.View
         {
             InitializeComponent();
         }
-
-        private void Button_Clicked(object sender, EventArgs e)
+        private bool AuthenticateUser(string username, string password)
         {
-            Navigation.PushAsync(new BelajarYok.View.Register());
+            return (username == "admin" && password == "password");
+        }
+        private void OnLoginClicked(object sender, EventArgs e)
+        {
+            string username = userEntry.Text;
+            string password = passEntry.Text;
+
+            bool checking = AuthenticateUser(username, password);
+
+            if (checking)
+            {
+                Application.Current.MainPage = new NavigationPage(new Register());
+            }
+            else
+            {
+                DisplayAlert("WARNING", "Wrong Username or Password", "OK");
+            }
         }
     }
 }

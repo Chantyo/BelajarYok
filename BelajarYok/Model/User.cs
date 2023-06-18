@@ -6,7 +6,7 @@ using SQLiteNetExtensions.Attributes;
 
 namespace BelajarYok.Model
 {
-    public class User
+    public class User : BaseObservableModel
     {
         [PrimaryKey,AutoIncrement]
         public int Id { get; set; }

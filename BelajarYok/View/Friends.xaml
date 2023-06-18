@@ -3,37 +3,162 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BelajarYok.View.Friends">
     <ContentPage.Content>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="42"/>
-                <RowDefinition Height="42"/>
-                <RowDefinition Height="42"/>
-                <RowDefinition Height="42"/>
-                <RowDefinition Height="42"/>
-                <RowDefinition Height="42"/>
-                <RowDefinition Height="42"/>
-                <RowDefinition Height="42"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="10"/>
-                <ColumnDefinition Width="50"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="50"/>
-                <ColumnDefinition Width="10"/>
-            </Grid.ColumnDefinitions>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout Orientation="Horizontal"
+                         Margin="20,15,20,15">
+                    <Image Source="more_horiz.png" 
+                           HorizontalOptions="Center"
+                           Margin="5,0,10,0"/>
+                    <Label Text="More"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           CharacterSpacing="0.15"
+                           TextColor="White"
+                           HorizontalOptions="Start" 
+                           VerticalOptions="Center"/>
+                </StackLayout>
+                <Frame
+                   BackgroundColor="#2b2c30"
+                   Padding="10"
+                HeightRequest="40">
+                    <Button BackgroundColor="Transparent"
+                            Text="Security and Account                                             >"
+                            FontAttributes="Bold"
+                            FontSize="16"
+                            CharacterSpacing="0.1"
+                            TextColor="White"
+                            TextTransform="None"    
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"
+                            ImageSource="perm_identity.png">
+                    </Button>
+                </Frame>
+                <Frame
+                   BackgroundColor="#e6c03b"
+                   Padding="10"
+                HeightRequest="40"
+                >
+                    <Button BackgroundColor="#e6c03b"
+                            Text="VIP                                      >"
+                            Clicked="ShowPopUp"
+                            FontAttributes="Bold"
+                            FontSize="16"
+                            CharacterSpacing="4"
+                            TextColor="White"
+                            TextTransform="None"    
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"
+                            ImageSource="attach_money.png">
 
-            <Image Grid.Row="0" Grid.Column="1" Source="group_add" Aspect="AspectFit" Scale="0.8"/>
-            <ImageButton Grid.Row="1" Grid.Column="1" Source="search" BackgroundColor="#2b2c30"/>
-            <Label Grid.Row="0" Grid.Column="2" 
-                       Text="Add Friend" 
-                       FontAttributes="Bold"
-                       FontSize="20"
-                       TextColor="White"
-                       VerticalTextAlignment="Center"/>
-            <Entry Grid.Row="1" Grid.Column="2" Text="Search" PlaceholderColor="White" BackgroundColor="#2b2c30"/>
-            <Image Grid.Row="0" Grid.Column="3" Source="Notif2" Aspect="AspectFit" Scale="0.8"/>
-            <ImageButton Grid.Row="1" Grid.Column="3" Source="group_add" BackgroundColor="#2b2c30" Aspect="AspectFit"/>
-        </Grid>
+                    </Button>
+                </Frame>
+                <Frame
+                   BackgroundColor="#2b2c30"
+                   Padding="10"
+                HeightRequest="40">
+                    <Button BackgroundColor="Transparent"
+                            Text="Notification Settings                                               >"
+                            FontAttributes="Bold"
+                            FontSize="16"
+                            CharacterSpacing="0.1"
+                            TextColor="White"
+                            TextTransform="None"    
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"
+                            ImageSource="notification_important.png">
+                    </Button>
+                </Frame>
+                <Frame
+                   BackgroundColor="#2b2c30"
+                   Padding="10"
+                HeightRequest="40">
+                    <Button BackgroundColor="Transparent"
+                            Text="Privacy Settings                                                       >"
+                            FontAttributes="Bold"
+                            FontSize="16"
+                            CharacterSpacing="0.1"
+                            TextColor="White"
+                            TextTransform="None"    
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"
+                            ImageSource="privacy_tip.png">
+                    </Button>
+                </Frame>
+                <Frame
+                   BackgroundColor="#2b2c30"
+                   Padding="10"
+                HeightRequest="40">
+                    <Button BackgroundColor="Transparent"
+                            Text="Languange                                                                >"
+                            FontAttributes="Bold"
+                            FontSize="16"
+                            CharacterSpacing="0.1"
+                            TextColor="White"
+                            TextTransform="None"    
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"
+                            ImageSource="language.png">
+                    </Button>
+                </Frame>
+                <Frame
+                   BackgroundColor="#2b2c30"
+                   Padding="10"
+                HeightRequest="40">
+                    <Button BackgroundColor="Transparent"
+                            Text="Help Center                                                               >"
+                            FontAttributes="Bold"
+                            FontSize="16"
+                            CharacterSpacing="0.1"
+                            TextColor="White"
+                            TextTransform="None"    
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"
+                            ImageSource="help_outline.png">
+                    </Button>
+                </Frame>
+                <Frame
+                   BackgroundColor="#2b2c30"
+                   Padding="10"
+                HeightRequest="40">
+                    <Button BackgroundColor="Transparent"
+                            Text="Application Policy                                                   >"
+                            FontAttributes="Bold"
+                            FontSize="16"
+                            CharacterSpacing="0.1"
+                            TextColor="White"
+                            TextTransform="None"    
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"
+                            ImageSource="policy.png">
+                    </Button>
+                </Frame>
+                <Frame
+                   BackgroundColor="#2b2c30"
+                   Padding="10"
+                HeightRequest="40">
+                    <Button BackgroundColor="Transparent"
+                            Text="Information                                                               >"
+                            FontAttributes="Bold"
+                            FontSize="16"
+                            CharacterSpacing="0.1"
+                            TextColor="White"
+                            TextTransform="None"    
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"
+                            ImageSource="info.png">
+                    </Button>
+                </Frame>
+                <Button
+                    BorderColor="#a7e12c"
+                    Text="Logout"
+                    BorderWidth="2"
+                    TextColor="#a7e12c"
+                    BackgroundColor="Transparent"
+                    CharacterSpacing="1"
+                    HeightRequest="70"
+                    Margin="0,10,0,30"/>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
